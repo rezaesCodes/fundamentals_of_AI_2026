@@ -1,22 +1,21 @@
-# Fundamentals of AI — 2026
+# Fundamentals of AI - Mini Projects (2026)
 
-Course mini-project hub and public teaching materials.
+Course project hub: https://rezaesCodes.github.io/fundamentals_of_AI_2026/
 
-## Website
+## Project releases
 
-The GitHub Pages site is published from the `main` branch, repository root:
+1. **MLP Networks** - available Oct 18 to Nov 1.
+   - [English project brief (PDF)](Project_1_MLP/resources/MLP_Nonlinear_Relationships_English.pdf)
+   - [Student notebook](Project_1_MLP/proj1-q.ipynb)
+   - [Global 1,000-row dataset](Project_1_MLP/master_nonlinear_mlp_dataset_1000.csv)
 
-- Expected URL: https://rezaescodes.github.io/fundamentals_of_AI_2026/
-- To enable it: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: main → Folder: /(root) → Save**.
+2. **Hopfield Neural Networks** - coming soon.
+3. **Mamdani Fuzzy Inference Systems** - coming soon.
+4. **TSK Fuzzy Inference Systems** - coming soon.
+5. **Optimization Algorithms** - coming soon.
 
-## Project 1 — MLP
+## MLP dataset note
 
-- [Project folder](Project_1_MLP/)
-- [Persian question PDF](Project_1_MLP/resources/mini_project_mlp_revised_fa.pdf)
-- [Print-friendly HTML brief](Project_1_MLP/MLP_Question.html)
+The CSV in this repository is the shared master dataset with 1,000 observations. The student notebook uses the last four digits of the student ID (or the sorted pair of suffixes for a pair) to create a reproducible seed and select a group-specific subset of 100 rows. Keep the notebook and CSV together when running locally or in Colab.
 
-## Project hub
-
-- [Open the landing page source](index.html)
-
-The notebook and student-specific MLP dataset are not published yet; the website marks those resources as coming soon. Future project titles and release dates are editable in the `projects` array in `index.html`.
+The private working repository contains instructor/reference material and drafts; this public repository is intended for student-facing releases.
