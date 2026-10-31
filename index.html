@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Fundamentals of AI 2026 — mini-project releases, briefs, notebooks and datasets.">
+  <title>Mini Projects — Fundamentals of AI 2026</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101114;
+      --panel: #181a1f;
+      --panel-2: #202229;
+      --line: rgba(255,255,255,.10);
+      --muted: #9297a1;
+      --text: #f2f3f5;
+      --soft: #c7cbd2;
+      --accent: #c7ccd5;
+      --accent-wash: rgba(210,216,226,.11);
+      --disabled: #656a73;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 50% -190px, rgba(190,198,211,.12), transparent 70%),
+        linear-gradient(180deg, #13151a 0%, var(--bg) 55%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: -.01em;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1440px, calc(100% - 64px)); margin: 0 auto; }
+    .topbar {
+      height: 74px; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(14,15,18,.72); backdrop-filter: blur(14px);
+    }
+    .brand { display:flex; align-items:center; gap:13px; text-decoration:none; }
+    .brand-mark {
+      width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.25); border-radius: 10px;
+      display:grid; place-items:center; color:#e1e4e9; background:linear-gradient(145deg,#343840,#1a1c22);
+      font-size: 12px; font-weight: 800; letter-spacing:.08em;
+      box-shadow: inset 0 1px rgba(255,255,255,.12), 0 5px 18px rgba(0,0,0,.25);
+    }
+    .brand-copy { display:flex; flex-direction:column; gap:2px; }
+    .brand-copy strong { font-size:12px; letter-spacing:.13em; text-transform:uppercase; }
+    .brand-copy span { color:var(--muted); font-size:11px; letter-spacing:.07em; }
+    .top-links { display:flex; align-items:center; gap:22px; color:var(--muted); font-size:12px; }
+    .top-links a { text-decoration:none; transition:color .2s ease; }
+    .top-links a:hover { color:var(--text); }
+    .top-pill { border:1px solid var(--line); border-radius:99px; padding:8px 12px; color:#d8dbe1; background:rgba(255,255,255,.035); }
+
+    .hero { padding:64px 0 33px; display:flex; justify-content:space-between; align-items:flex-end; gap:30px; }
+    .eyebrow { color:#aeb3bd; font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; display:flex; align-items:center; gap:10px; }
+    .eyebrow::before { content:""; width:22px; height:1px; background:#858b96; }
+    h1 { font-size:clamp(36px,5vw,57px); line-height:1.02; letter-spacing:-.055em; font-weight:760; margin:16px 0 12px; }
+    .hero p { max-width:590px; color:#a4a9b2; font-size:14px; line-height:1.7; margin:0; }
+    .season {
+      display:flex; align-items:center; gap:12px; padding:12px 15px; border:1px solid var(--line);
+      border-radius:12px; background:rgba(255,255,255,.025); color:#c2c6ce; white-space:nowrap;
+      font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    }
+    .season-dot { width:7px; height:7px; background:#aeb4bd; border-radius:50%; box-shadow:0 0 0 4px rgba(174,180,189,.12); }
+
+    .section-head { display:flex; justify-content:space-between; align-items:center; margin:28px 0 17px; }
+    .section-head h2 { font-size:12px; margin:0; letter-spacing:.17em; text-transform:uppercase; font-weight:750; color:#d7dae0; }
+    .section-head span { font-size:11px; color:#777d87; }
+    .project-grid {
+      display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:17px;
+    }
+    .project-card {
+      position:relative; text-align:left; min-width:0; padding:0; border:0; color:inherit; background:transparent;
+      cursor:pointer; font:inherit; display:flex; flex-direction:column; gap:14px;
+      transition:transform .22s ease, opacity .22s ease;
+    }
+    .project-card:not(:disabled):hover { transform:translateY(-5px); }
+    .project-card:focus-visible { outline:2px solid #e4e7ec; outline-offset:5px; border-radius:12px; }
+    .project-card:disabled { cursor:not-allowed; opacity:.62; }
+    .folder-stage {
+      width:100%; aspect-ratio:1 / 1; position:relative; overflow:hidden; isolation:isolate;
+      filter:grayscale(1); transition:filter .22s ease, opacity .22s ease;
+    }
+    .project-card:not(:disabled):hover .folder-stage { filter:grayscale(.65) brightness(1.08); }
+    .folder-back {
+      position:absolute; inset:16px 8px 8px 8px; border:1px solid rgba(255,255,255,.17);
+      border-radius:13px 15px 15px 15px; background:linear-gradient(145deg,#474b53 0%,#30343b 53%,#25282e 100%);
+      box-shadow:0 15px 36px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.18);
+      transform:skewY(-1deg);
+    }
+    .folder-back::before {
+      content:""; position:absolute; left:0; top:-12px; width:39%; height:17px;
+      border:1px solid rgba(255,255,255,.16); border-bottom:0; border-radius:9px 9px 0 0;
+      background:linear-gradient(180deg,#50545c,#3d4149);
+    }
+    .folder-front {
+      position:absolute; inset:40px 8px 8px 8px; border:1px solid rgba(255,255,255,.2);
+      border-radius:6px 13px 14px 14px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.12),transparent 38%),
+        linear-gradient(145deg,#3a3e46,#24272e 70%);
+      box-shadow:inset 0 1px rgba(255,255,255,.13), 0 8px 22px rgba(0,0,0,.24);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .folder-front::after {
+      content:""; position:absolute; inset:0; border-radius:inherit;
+      background:linear-gradient(130deg,transparent 45%,rgba(255,255,255,.035) 46%,transparent 72%);
+      pointer-events:none;
+    }
+    .folder-glyph { font-size:clamp(34px,4.2vw,55px); font-weight:800; letter-spacing:-.08em; color:rgba(236,239,244,.72); text-shadow:0 2px 14px rgba(0,0,0,.25); }
+    .folder-index { position:absolute; z-index:2; left:22px; top:27px; font-size:9px; letter-spacing:.14em; color:rgba(242,244,247,.65); font-weight:700; }
+    .folder-stamp {
+      position:absolute; z-index:3; right:17px; top:27px; padding:6px 8px; border-radius:4px;
+      font-size:8px; font-weight:800; letter-spacing:.12em; color:#d3d6dc;
+      border:1px solid rgba(255,255,255,.2); background:rgba(13,14,17,.45); backdrop-filter:blur(4px);
+    }
+    .project-card:disabled .folder-stage { opacity:.7; }
+    .project-meta { display:flex; flex-direction:column; gap:6px; padding:0 2px; }
+    .project-meta strong { font-size:16px; letter-spacing:-.025em; font-weight:700; }
+    .project-date { color:#878d97; font-size:10px; font-weight:650; letter-spacing:.09em; text-transform:uppercase; }
+    .project-state { margin-top:3px; color:#9aa0aa; font-size:9px; letter-spacing:.16em; font-weight:800; text-transform:uppercase; display:flex; align-items:center; gap:7px; }
+    .project-state::before { content:""; width:5px; height:5px; border-radius:50%; background:#818791; }
+    .project-card:not(:disabled) .project-state { color:#d2d6dd; }
+    .project-card:not(:disabled) .project-state::before { background:#d4d8df; box-shadow:0 0 0 3px rgba(212,216,223,.12); }
+
+    .hint {
+      margin:31px 0 60px; border:1px solid var(--line); border-radius:12px; padding:15px 17px;
+      display:flex; align-items:center; justify-content:space-between; gap:15px; background:rgba(255,255,255,.022);
+      color:#9298a2; font-size:11px; line-height:1.55;
+    }
+    .hint strong { color:#c7cbd2; font-weight:650; }
+    .hint .key { border:1px solid var(--line); border-radius:5px; padding:3px 6px; color:#c3c8d0; white-space:nowrap; font-size:10px; }
+    footer { border-top:1px solid var(--line); padding:24px 0 30px; color:#6f7580; font-size:10px; letter-spacing:.07em; display:flex; justify-content:space-between; gap:20px; }
+    footer a { color:#aeb4bd; text-decoration:none; }
+
+    .modal-backdrop {
+      position:fixed; inset:0; z-index:20; background:rgba(5,6,8,.76); backdrop-filter:blur(10px);
+      display:none; align-items:center; justify-content:center; padding:24px;
+    }
+    .modal-backdrop.open { display:flex; }
+    .modal {
+      width:min(620px,100%); border:1px solid rgba(255,255,255,.15); border-radius:18px; overflow:hidden;
+      background:linear-gradient(150deg,#24272e,#17191e 65%); box-shadow:0 28px 100px rgba(0,0,0,.65);
+      animation:rise .2s ease-out;
+    }
+    @keyframes rise { from { opacity:0; transform:translateY(10px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .modal-top { padding:25px 27px 22px; border-bottom:1px solid var(--line); position:relative; }
+    .modal-kicker { color:#9da3ad; text-transform:uppercase; letter-spacing:.17em; font-size:9px; font-weight:750; }
+    .modal h3 { margin:9px 0 7px; font-size:30px; letter-spacing:-.05em; }
+    .modal-date { color:#9298a2; font-size:11px; letter-spacing:.09em; text-transform:uppercase; }
+    .modal-desc { color:#b2b7c0; font-size:13px; line-height:1.65; max-width:510px; margin:17px 0 0; }
+    .close {
+      position:absolute; right:19px; top:18px; width:34px; height:34px; display:grid; place-items:center;
+      border:1px solid var(--line); color:#c9cdd4; background:rgba(255,255,255,.04); border-radius:9px; cursor:pointer; font-size:20px;
+    }
+    .close:hover { background:rgba(255,255,255,.1); }
+    .modal-body { padding:20px 27px 26px; }
+    .resource-title { margin:0 0 11px; color:#9096a0; font-size:9px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+    .resource-list { display:flex; flex-direction:column; gap:9px; }
+    .resource {
+      display:flex; align-items:center; gap:13px; min-height:67px; border:1px solid var(--line); border-radius:11px;
+      padding:12px 14px; background:rgba(255,255,255,.027); text-decoration:none; transition:background .18s,border-color .18s;
+    }
+    a.resource:hover { background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.24); }
+    .resource-icon { width:38px; height:38px; flex:0 0 38px; border-radius:9px; display:grid; place-items:center; background:rgba(255,255,255,.07); color:#cbd0d8; font-size:10px; font-weight:800; letter-spacing:.04em; }
+    .resource-copy { min-width:0; flex:1; display:flex; flex-direction:column; gap:4px; }
+    .resource-copy strong { color:#edf0f4; font-size:12px; }
+    .resource-copy span { color:#858b95; font-size:10px; line-height:1.4; }
+    .resource-status { color:#c5cad2; font-size:9px; text-transform:uppercase; letter-spacing:.12em; font-weight:800; white-space:nowrap; }
+    .resource.disabled { opacity:.48; cursor:not-allowed; }
+    .resource.disabled .resource-status { color:#8b919b; }
+    .modal-note { color:#7f858f; font-size:10px; line-height:1.55; margin:15px 0 0; }
+    .modal-note a { color:#bdc3cc; }
+
+    @media (max-width: 1050px) {
+      .project-grid { grid-template-columns:repeat(3,minmax(0,1fr)); row-gap:25px; }
+      .folder-glyph { font-size:52px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width:min(100% - 36px, 520px); }
+      .topbar { height:64px; }
+      .top-links { gap:12px; }
+      .top-links .top-pill { display:none; }
+      .hero { padding:46px 0 24px; align-items:flex-start; flex-direction:column; gap:18px; }
+      .hero p { font-size:13px; }
+      .season { padding:9px 11px; }
+      .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:23px 13px; }
+      .folder-stage { aspect-ratio:1 / 1; }
+      .folder-glyph { font-size:44px; }
+      .project-meta strong { font-size:15px; }
+      .hint { align-items:flex-start; flex-direction:column; margin-bottom:42px; }
+      footer { flex-direction:column; }
+      .modal-backdrop { padding:13px; align-items:flex-end; }
+      .modal { border-radius:17px 17px 12px 12px; max-height:90vh; overflow-y:auto; }
+      .modal-top { padding:22px 20px 18px; }
+      .modal-body { padding:18px 20px 22px; }
+      .modal h3 { font-size:27px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <a class="brand" href="#top" aria-label="Fundamentals of AI home">
+        <span class="brand-mark">AI</span>
+        <span class="brand-copy"><strong>Fundamentals of AI</strong><span>MINI PROJECTS · 2026</span></span>
+      </a>
+      <nav class="top-links" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="https://github.com/rezaesCodes" target="_blank" rel="noopener">GitHub ↗</a>
+        <span class="top-pill">COURSE HUB</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">THE 2026 COLLECTION</div>
+        <h1>Mini Projects</h1>
+        <p>Pick a folder to open its project resources. New challenges are released throughout the semester — keep an eye on the schedule.</p>
+      </div>
+      <div class="season"><span class="season-dot"></span> FALL TERM · 2026</div>
+    </section>
+
+    <section id="projects" aria-labelledby="project-heading">
+      <div class="section-head">
+        <h2 id="project-heading">Project releases</h2>
+        <span>05 PROJECTS · 2026</span>
+      </div>
+      <div id="projectGrid" class="project-grid" aria-live="polite"></div>
+    </section>
+
+    <div class="hint">
+      <span><strong>How it works:</strong> select an available folder to view its brief and learning materials. Locked folders are announced soon.</span>
+      <span class="key">SELECT A FOLDER ↗</span>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <span>FUNDAMENTALS OF AI · MINI PROJECT HUB</span>
+    <span>Built for the 2026 course · <a href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener">Source repository ↗</a></span>
+  </footer>
+
+  <div id="modalBackdrop" class="modal-backdrop" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+      <div class="modal-top">
+        <button class="close" id="closeModal" aria-label="Close project details">×</button>
+        <div class="modal-kicker">PROJECT RESOURCES</div>
+        <h3 id="modalTitle">MLP</h3>
+        <div class="modal-date" id="modalDate"></div>
+        <p class="modal-desc" id="modalDescription"></p>
+      </div>
+      <div class="modal-body">
+        <p class="resource-title">Available materials</p>
+        <div id="resourceList" class="resource-list"></div>
+        <p class="modal-note" id="modalNote"></p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Change project names, dates, release status, or resource paths here.
+    // Dates below are planned 2026 windows, spaced roughly ten days apart.
+    const projects = [
+      {
+        id: "mlp", number: "01", title: "MLP", glyph: "M", dates: "OCT 18 — NOV 01",
+        state: "available", stateLabel: "Brief available",
+        description: "Learn nonlinear relationships with a multilayer perceptron. Explore data, preprocess features, compare architectures and hyperparameters, and evaluate predictions on unseen samples.",
+        resources: [
+          { label: "Question brief", detail: "Revised Persian assignment · view, print or save as PDF", kind: "PDF", status: "View & print", href: "Project_1_MLP/MLP_Question.html" },
+          { label: "Student notebook", detail: "Starter notebook and student-specific data extraction", kind: "IPYNB", status: "Coming soon", href: null },
+          { label: "Dataset", detail: "Personalized 100-row CSV generated for each student/group", kind: "CSV", status: "Coming soon", href: null }
+        ],
+        note: "The question brief is available now in a print-ready page (use Print / Save as PDF). The student notebook and per-student dataset will be linked here once they are added to the public course repository."
+      },
+      { id: "hopfield", number: "02", title: "Hopfield", glyph: "H", dates: "NOV 02 — NOV 12", state: "soon", stateLabel: "Soon" },
+      { id: "search", number: "03", title: "Search Algorithms", glyph: "S", dates: "NOV 13 — NOV 23", state: "soon", stateLabel: "Soon" },
+      { id: "genetic", number: "04", title: "Genetic Algorithms", glyph: "G", dates: "NOV 24 — DEC 04", state: "soon", stateLabel: "Soon" },
+      { id: "reinforcement", number: "05", title: "Reinforcement Learning", glyph: "R", dates: "DEC 05 — DEC 15", state: "soon", stateLabel: "Soon" }
+    ];
+
+    const grid = document.getElementById("projectGrid");
+    const backdrop = document.getElementById("modalBackdrop");
+    const closeButton = document.getElementById("closeModal");
+    let lastFocused = null;
+
+    function renderProjects() {
+      grid.innerHTML = projects.map(project => {
+        const disabled = project.state !== "available";
+        return `
+          <button class="project-card" type="button" data-project="${project.id}" ${disabled ? "disabled aria-disabled=\"true\"" : "aria-haspopup=\"dialog\""} aria-label="${project.title}${disabled ? ", coming soon" : ", open resources"}">
+            <span class="folder-stage" aria-hidden="true">
+              <span class="folder-back"></span>
+              <span class="folder-front"><span class="folder-glyph">${project.glyph}</span></span>
+              <span class="folder-index">FILE ${project.number}</span>
+              <span class="folder-stamp">${disabled ? "SOON" : "OPEN"}</span>
+            </span>
+            <span class="project-meta">
+              <strong>${project.title}</strong>
+              <span class="project-date">${project.dates}</span>
+              <span class="project-state">${project.stateLabel}</span>
+            </span>
+          </button>`;
+      }).join("");
+
+      grid.querySelectorAll("button[data-project]:not(:disabled)").forEach(button => {
+        button.addEventListener("click", () => openProject(button.dataset.project, button));
+      });
+    }
+
+    function openProject(id, sourceButton) {
+      const project = projects.find(item => item.id === id && item.state === "available");
+      if (!project) return;
+      lastFocused = sourceButton || document.activeElement;
+      document.getElementById("modalTitle").textContent = project.title;
+      document.getElementById("modalDate").textContent = project.dates;
+      document.getElementById("modalDescription").textContent = project.description;
+      document.getElementById("modalNote").textContent = project.note || "";
+      document.getElementById("resourceList").innerHTML = project.resources.map(resource => {
+        const body = `<span class="resource-icon">${resource.kind}</span><span class="resource-copy"><strong>${resource.label}</strong><span>${resource.detail}</span></span><span class="resource-status">${resource.status}</span>`;
+        return resource.href
+          ? `<a class="resource" href="${resource.href}" target="_blank" rel="noopener">${body}</a>`
+          : `<div class="resource disabled" aria-disabled="true">${body}</div>`;
+      }).join("");
+      backdrop.classList.add("open");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
+
+    function closeProject() {
+      backdrop.classList.remove("open");
+      document.body.style.overflow = "";
+      if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+    }
+
+    closeButton.addEventListener("click", closeProject);
+    backdrop.addEventListener("click", event => { if (event.target === backdrop) closeProject(); });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && backdrop.classList.contains("open")) closeProject();
+    });
+
+    renderProjects();
+  </script>
+</body>
+</html>
