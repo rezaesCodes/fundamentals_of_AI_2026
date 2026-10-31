@@ -1,0 +1,244 @@
+%PDF-1.4
+%ASCII
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 7003 >>
+stream
+0.12 0.20 0.32 RG 0.7 w 48 760 m 564 760 l S
+BT /F2 7 Tf 0.17 0.32 0.53 rg 50 770 Td (FUNDAMENTALS OF AI | MINI-PROJECT SERIES) Tj ET
+BT /F2 17 Tf 0.09 0.19 0.33 rg 50 748 Td (Learning Nonlinear Relationships with a Multilayer Perceptron \(MLP\)) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 722 Td (Fundamentals of AI | Individual or pair work | Suggested duration: 10 days) Tj ET
+BT /F2 8 Tf 0.12 0.25 0.42 rg 50 709 Td (MAIN SCORE: 100 points     PRACTICAL WORK: 60 points     THEORY: 40 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 694 Td (Scoring: The main project is worth 100 points: 60 for implementation and practical analysis, and 40 for) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 683.8 Td (MLP theory questions embedded throughout the coding sections. A separate bonus task after Section 7 is) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 673.5999999999999 Td (worth up to 10 additional points and is outside the main score.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 657.3999999999999 Td (Project objective) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 640.3999999999999 Td (You will work with a shared synthetic master dataset containing 1,000 observations. At the beginning of) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 630.1999999999998 Td (the starter notebook, your student ID \(or both IDs for a pair\) is used with a reproducible seed to) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 619.9999999999998 Td (select a group-specific subset of 100 observations. Each selected observation has three inputs, x, y,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 609.7999999999997 Td (and z, and one output, u.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 597.5999999999997 Td (The exact relationship between the inputs and output is not provided. Your task is to explore the data,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 587.3999999999996 Td (build an MLP, test several hyperparameter configurations, and draw a reasoned conclusion about the) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 577.1999999999996 Td (likely relationships among the variables.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 564.9999999999995 Td (The data contain noise, so do not expect zero prediction error. The goal is to perform well on unseen) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 554.7999999999995 Td (data, not to memorize the training set.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 538.5999999999995 Td (Key information and rules) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 521.5999999999995 Td (- Your group-specific dataset must contain exactly 100 rows with columns x, y, z, and u. The) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 511.39999999999947 Td (shared master CSV contains 1,000 rows; do not edit it.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 499.1999999999995 Td (- Run the starter notebook to create your 100-row CSV subset using your student ID number\(s\).) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 488.9999999999995 Td (Keep the notebook and master CSV together, or upload the master CSV when prompted in Google) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 478.7999999999995 Td (Colab.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 466.5999999999995 Td (- The group seed uses the last four digits of each student ID. For a pair, sort the two) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 456.3999999999995 Td (four-digit suffixes from smallest to largest and concatenate them. For example, 1234 and 5678) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 446.19999999999953 Td (produce seed 12345678.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 433.99999999999955 Td (- Use the same seed for subset selection and the Training/Validation/Test split, so your) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 423.79999999999956 Td (experiment is reproducible.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 411.59999999999957 Td (- Each network configuration may be trained for at most 100 epochs. Early Stopping is allowed.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 399.3999999999996 Td (- Use Validation data to select the final model. Evaluate on Test data only after selection;) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 389.1999999999996 Td (do not tune again based on Test results.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 376.9999999999996 Td (- AI tools may help with coding, but you must explain your code, parameter shapes,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 366.7999999999996 Td (hyperparameters, plots, and conclusions.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 350.5999999999996 Td (Section 1 - Load and inspect the data | 8 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 333.5999999999996 Td (Practical work - 5 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 320.5999999999996 Td (- \(1 point\) Read the group CSV file and display its first five rows.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 308.39999999999964 Td (- \(2 points\) Report the number of rows and columns, column names, data types, and number of) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 298.19999999999965 Td (missing values.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 285.99999999999966 Td (- \(1 point\) Check for duplicate rows or unusual values, and briefly explain how you checked.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 273.79999999999967 Td (- \(1 point\) Record the group seed and data filename in your notebook.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 261.5999999999997 Td (Theory questions - 3 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 248.59999999999968 Td (- Before splitting, write the shapes of input array X and output array u. Explain what each) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 238.3999999999997 Td (dimension represents, including the number of observations and input features.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 222.1999999999997 Td (Section 2 - Exploratory data analysis and visualization | 12 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 205.1999999999997 Td (Practical work - 7 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 192.1999999999997 Td (- \(2 points\) Create descriptive statistics for x, y, z, and u.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 179.99999999999972 Td (- \(3 points\) Draw scatter plots: u versus x, u versus y, and u versus z.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 167.79999999999973 Td (- \(2 points\) Give each plot an appropriate title, axis labels, and readable scales.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 155.59999999999974 Td (Theory questions - 5 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 142.59999999999974 Td (- Using your plots, describe each trend as increasing, decreasing, or unclear. Discuss whether) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 132.39999999999975 Td (each possible relationship appears linear or nonlinear; explain the visual evidence for at) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 122.19999999999975 Td (least one.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 109.99999999999974 Td (- Explain why a correlation or visual trend does not, by itself, prove causation.) Tj ET
+BT /F1 7 Tf 0.38 0.42 0.48 rg 490 24 Td (MLP MINI-PROJECT | 0) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 5113 >>
+stream
+0.12 0.20 0.32 RG 0.7 w 48 760 m 564 760 l S
+BT /F2 7 Tf 0.17 0.32 0.53 rg 50 770 Td (FUNDAMENTALS OF AI | MINI-PROJECT SERIES) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 744 Td (Section 3 - Data splitting and preprocessing | 12 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 727 Td (Practical work - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 714 Td (- \(3 points\) Split the data into approximately 70% Training, 15% Validation, and 15% Test. Use) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 703.8 Td (your group seed.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 691.5999999999999 Td (- \(3 points\) Standardize the input features. Fit scaling parameters on Training data only. If) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 681.3999999999999 Td (you scale u, inverse-transform predictions before reporting errors in the original output) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 671.1999999999998 Td (scale.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 658.9999999999998 Td (Theory questions - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 645.9999999999998 Td (- Distinguish the roles of Training, Validation, and Test data, and explain why all three are) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 635.7999999999997 Td (needed.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 623.5999999999997 Td (- What is data leakage? Explain what can go wrong if the mean and standard deviation for) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 613.3999999999996 Td (standardization are calculated using the entire dataset, including Validation and Test.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 597.1999999999996 Td (Section 4 - Design hyperparameter experiments | 14 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 580.1999999999996 Td (Practical work - 8 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 567.1999999999996 Td (- \(3 points\) Test at least five different configurations.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 554.9999999999995 Td (- \(3 points\) Examine at least three hidden-layer structures and at least two activation) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 544.7999999999995 Td (functions. Also change the learning rate or batch size in at least one experiment.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 532.5999999999995 Td (- \(2 points\) Record architecture, activation, learning rate, batch size, epochs actually run,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 522.3999999999994 Td (and one consistent Validation-error metric in a table.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 510.19999999999936 Td (Theory questions - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 497.19999999999936 Td (- Compare ReLU and tanh using your results. Explain how ReLU can help learning and when tanh) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 486.9999999999994 Td (may saturate and produce small gradients. Relate your conclusion to the data and observed) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 476.7999999999994 Td (results; neither activation is always best.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 464.5999999999994 Td (- For regression, why is a linear output activation usually used? Explain what limitation) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 454.3999999999994 Td (sigmoid or ReLU could impose on the range of predictions.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 438.1999999999994 Td (Section 5 - Train and select an MLP | 18 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 421.1999999999994 Td (Practical work - 11 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 408.1999999999994 Td (- \(4 points\) Build an MLP for regression with Keras. You do not need to define weights) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 397.99999999999943 Td (manually.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 385.79999999999944 Td (- \(3 points\) Train each configuration for no more than 100 epochs. If you use Early Stopping,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 375.59999999999945 Td (retain the reason training stopped and the training-history plot.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 363.39999999999947 Td (- \(4 points\) Compare configurations using Validation results and justify your final model) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 353.1999999999995 Td (selection.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 340.9999999999995 Td (Theory questions - 7 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 327.9999999999995 Td (- For your selected architecture, identify the input neurons, neurons in every hidden layer,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 317.7999999999995 Td (and output neurons. Write each Dense layer kernel and bias shape, and calculate total) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 307.5999999999995 Td (trainable parameters. Your calculation must match your code.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 295.3999999999995 Td (- What role does the learning rate play when weights are updated by backpropagation? Explain) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 285.19999999999953 Td (how a rate that is too large or too small affects error reduction and training stability.) Tj ET
+BT /F1 7 Tf 0.38 0.42 0.48 rg 490 24 Td (MLP MINI-PROJECT | 1) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4719 >>
+stream
+0.12 0.20 0.32 RG 0.7 w 48 760 m 564 760 l S
+BT /F2 7 Tf 0.17 0.32 0.53 rg 50 770 Td (FUNDAMENTALS OF AI | MINI-PROJECT SERIES) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 744 Td (Section 6 - Final evaluation | 12 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 727 Td (Practical work - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 714 Td (- \(3 points\) Only after selecting the model, calculate and report MAE and RMSE on the Test) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 703.8 Td (data.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 691.5999999999999 Td (- \(3 points\) Plot actual u values against predicted u values. Also show Training- and) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 681.3999999999999 Td (Validation-loss histories for the selected model.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 669.1999999999998 Td (Theory questions - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 656.1999999999998 Td (- Explain MAE, MSE, and RMSE. How do they differ in their treatment of large errors, and what) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 645.9999999999998 Td (are the units of MAE and RMSE relative to u?) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 633.7999999999997 Td (- What does R-squared represent? Interpret values near 1, near 0, and below 0.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 621.5999999999997 Td (- Compare the computational cost of MAE, MSE, RMSE, and R-squared. Consider their time) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 611.3999999999996 Td (complexity for n observations and explain why practical speed differences are usually not) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 601.1999999999996 Td (decisive here.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 584.9999999999995 Td (Section 7 - Infer the relationships among variables | 16 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 567.9999999999995 Td (Practical work - 10 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 554.9999999999995 Td (- \(2 points\) Using plots and predictions, describe the relationship between u and x and) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 544.7999999999995 Td (discuss evidence of nonlinearity.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 532.5999999999995 Td (- \(2 points\) Describe the relationship between u and y. Is it similar to the relationship with) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 522.3999999999994 Td (x, or does it differ?) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 510.19999999999936 Td (- \(2 points\) Describe the relationship between z and u, and argue whether it appears) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 499.9999999999994 Td (approximately linear.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 487.7999999999994 Td (- \(4 points\) Write a hypothesis about the overall relationship between u and x, y, and z.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 477.5999999999994 Td (Explain how noise prevents a perfect match.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 465.3999999999994 Td (Theory questions - 6 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 452.3999999999994 Td (- Examine Training- and Validation-loss curves. What patterns may indicate underfitting or) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 442.1999999999994 Td (overfitting? Suggest a corrective action.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 429.99999999999943 Td (- Why should you not repeatedly use Test results to adjust architecture or hyperparameters) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 419.79999999999944 Td (after selecting a model?) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 407.59999999999945 Td (- Why is low Training error alone not enough to choose a model?) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 391.39999999999947 Td (Bonus task - Controlled investigation of a relationship | Up to 10 extra points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 374.39999999999947 Td (This task is separate from the 100-point main score.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 362.1999999999995 Td (- \(4 points\) Hold two inputs constant and vary the third over a range, preferably within the) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 351.9999999999995 Td (Training-data range.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 339.7999999999995 Td (- \(3 points\) Calculate predicted u values and plot predicted output against the varying input.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 329.5999999999995 Td (Add a title and axis labels.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 317.3999999999995 Td (- \(3 points\) Analyze the trend. If justified, propose an approximate nonlinear or power-law) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 307.19999999999953 Td (relationship and discuss the limitations of your conclusion.) Tj ET
+BT /F1 7 Tf 0.38 0.42 0.48 rg 490 24 Td (MLP MINI-PROJECT | 2) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4836 >>
+stream
+0.12 0.20 0.32 RG 0.7 w 48 760 m 564 760 l S
+BT /F2 7 Tf 0.17 0.32 0.53 rg 50 770 Td (FUNDAMENTALS OF AI | MINI-PROJECT SERIES) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 744 Td (Section 8 - Report and presentation | 8 points) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 727 Td (Practical work - 7 points) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 714 Td (- \(4 points\) Prepare a 5-7 minute presentation covering the data, key plots, main experiments,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 703.8 Td (final-model selection, and conclusions.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 691.5999999999999 Td (- \(3 points\) Submit a tidy, runnable notebook with code, plots, and a comparison table for at) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 681.3999999999999 Td (least five configurations.) Tj ET
+BT /F2 8.8 Tf 0.16 0.35 0.58 rg 50 669.1999999999998 Td (Theory question - 1 point) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 656.1999999999998 Td (- During the presentation, answer a short question about weight shapes, learning rate,) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 645.9999999999998 Td (activations, evaluation metrics, or Training versus Test data.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 629.7999999999997 Td (Scoring summary) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 612.7999999999997 Td (Theory points are integrated into the sections; they should not be answered as a separate block detached) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 602.5999999999997 Td (from the coding work. The bonus task is worth up to 10 additional points, outside the 100-point main) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 592.3999999999996 Td (score.) Tj ET
+0.89 0.92 0.96 rg 48 577.1999999999996 516 14 re f
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 580.1999999999996 Td (Part    |    Topic    |    Practical    |    Theory    |    Total) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 567.1999999999996 Td (1    |    Load and inspect data    |    5    |    3    |    8) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 554.1999999999996 Td (2    |    Exploratory analysis and visualization    |    7    |    5    |    12) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 541.1999999999996 Td (3    |    Data splitting and preprocessing    |    6    |    6    |    12) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 528.1999999999996 Td (4    |    Hyperparameter experiments    |    8    |    6    |    14) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 515.1999999999996 Td (5    |    Train and select an MLP    |    11    |    7    |    18) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 502.1999999999996 Td (6    |    Final evaluation    |    6    |    6    |    12) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 489.1999999999996 Td (7    |    Infer variable relationships    |    10    |    6    |    16) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 476.1999999999996 Td (8    |    Report and presentation    |    7    |    1    |    8) Tj ET
+BT /F1 7.2 Tf 0.13 0.17 0.22 rg 52 463.1999999999996 Td (TOTAL    |    Main project    |    60    |    40    |    100) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 446.1999999999996 Td (Reference - Dense-layer dimensions and parameter counts) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 429.1999999999996 Td (If a Dense layer maps n input values to m neurons:) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 416.9999999999996 Td (- Weight matrix: kernel.shape = \(n, m\).) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 404.7999999999996 Td (- Bias vector: bias.shape = \(m,\).) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 392.5999999999996 Td (- Trainable parameters: n x m + m.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 380.39999999999964 Td (Example: X_batch.shape = \(batch_size, 3\) and prediction.shape = \(batch_size, 1\). Total trainable) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 370.19999999999965 Td (parameters are the sum across all layers. The exact shape of u labels depends on how you prepare target) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 359.99999999999966 Td (data.) Tj ET
+BT /F2 11.5 Tf 0.09 0.19 0.33 rg 50 343.79999999999967 Td (What to submit) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 326.79999999999967 Td (- A Jupyter Notebook containing your code, tables, plots, and explanations.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 314.5999999999997 Td (- A comparison table covering at least five MLP configurations.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 302.3999999999997 Td (- A short presentation or in-person explanation of your results.) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 290.1999999999997 Td (Final reminder: the best model is not necessarily the one with the lowest Training error. It should also) Tj ET
+BT /F1 7.8 Tf 0.13 0.17 0.22 rg 54 279.9999999999997 Td (perform well on Validation data, and final Test evaluation must happen without further tuning.) Tj ET
+BT /F1 7 Tf 0.38 0.42 0.48 rg 490 24 Td (MLP MINI-PROJECT | 3) Tj ET
+endstream
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000016 00000 n 
+0000000065 00000 n 
+0000000141 00000 n 
+0000000211 00000 n 
+0000000286 00000 n 
+0000000422 00000 n 
+0000007476 00000 n 
+0000007612 00000 n 
+0000012776 00000 n 
+0000012913 00000 n 
+0000017684 00000 n 
+0000017822 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+22710
+%%EOF
