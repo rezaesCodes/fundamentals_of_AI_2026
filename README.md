@@ -5,6 +5,7 @@ Course project hub: https://rezaesCodes.github.io/fundamentals_of_AI_2026/
 ## Project releases
 
 1. **MLP Networks** - available Oct 18 to Nov 1.
+   - [MLP teaching tutorial](Project_1_MLP/resources/MLP_Guide_Tutorial.ipynb) (uses a separate car-emissions teaching dataset)
    - [English project brief (PDF)](Project_1_MLP/resources/MLP_Nonlinear_Relationships_English.pdf)
    - [Student notebook](Project_1_MLP/proj1-q.ipynb)
    - [Global 1,000-row dataset](Project_1_MLP/master_nonlinear_mlp_dataset_1000.csv)
