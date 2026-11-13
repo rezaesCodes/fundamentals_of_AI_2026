@@ -50,10 +50,17 @@
     .folder-back:before{content:"";position:absolute;left:0;top:-12px;width:39%;height:17px;border:1px solid rgba(255,255,255,.15);border-bottom:0;border-radius:9px 9px 0 0;background:linear-gradient(180deg,#555c68,#424955)}
     .folder-front{position:absolute;inset:39px 7px 8px;border:1px solid rgba(255,255,255,.18);border-radius:8px 12px 14px 14px;background:linear-gradient(155deg,rgba(117,129,150,.60),rgba(63,70,83,.94) 58%,rgba(42,47,57,.97));box-shadow:inset 0 1px rgba(255,255,255,.12);overflow:hidden;display:grid;place-items:center}
     .folder-front:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.13),transparent 45%);pointer-events:none}
+    .folder-pages{position:absolute;right:19px;top:46px;width:34px;height:31px;z-index:3;transform:rotate(5deg);filter:drop-shadow(0 3px 4px rgba(0,0,0,.3))}
+    .folder-pages .paper-back{position:absolute;inset:0 4px 3px 0;border:1px solid rgba(255,255,255,.72);border-radius:3px;background:#bfc9d9;transform:rotate(-9deg)}
+    .folder-pages .paper-front{position:absolute;inset:0 0 0 5px;border:1px solid rgba(255,255,255,.88);border-radius:3px;background:#e2e7ef;padding:6px 4px;display:flex;flex-direction:column;gap:3px}
+    .folder-pages .paper-front i{height:2px;background:#9aa8bd;display:block;border-radius:2px}
+    .folder-pages .paper-front i:nth-child(2){width:80%}.folder-pages .paper-front i:nth-child(3){width:62%}
+    .folder-file-count{position:absolute;right:13px;bottom:13px;z-index:4;display:flex;align-items:center;gap:4px;padding:4px 6px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(12,15,21,.7);color:#e4eaf4;font-size:7px;line-height:1;letter-spacing:.08em;font-weight:800}
+    .folder-file-count b{font-size:9px}
     .project-card.active .folder-back{border-color:rgba(190,205,230,.42);box-shadow:0 16px 36px rgba(0,0,0,.36),0 0 0 1px rgba(178,197,231,.08),inset 0 1px rgba(255,255,255,.17)}
     .project-card.active .folder-front{border-color:rgba(211,222,242,.55)}
-    .folder-index{position:absolute;left:17px;top:55px;color:rgba(240,244,250,.56);font-size:8px;letter-spacing:.16em;font-weight:800;z-index:2}
-    .folder-stamp{position:absolute;right:16px;top:17px;padding:6px 9px;border:1px solid rgba(255,255,255,.18);border-radius:99px;background:rgba(15,17,22,.55);color:#e1e5eb;font-size:9px;letter-spacing:.08em;font-weight:750;z-index:3;backdrop-filter:blur(5px)}
+    
+    .folder-stamp{position:absolute;left:16px;right:auto;top:17px;padding:6px 9px;border:1px solid rgba(255,255,255,.18);border-radius:99px;background:rgba(15,17,22,.55);color:#e1e5eb;font-size:9px;letter-spacing:.08em;font-weight:750;z-index:3;backdrop-filter:blur(5px)}
     .project-art{width:76%;height:65%;color:#d9e1ee;position:relative;z-index:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.28))}
     .project-art svg{width:100%;height:100%;display:block}
     .project-meta{display:flex;flex-direction:column;gap:6px;padding:0 3px;min-height:72px}
@@ -78,14 +85,21 @@
     .modal-art svg{width:100%;height:100%}
     .close{position:absolute;right:18px;top:18px;width:32px;height:32px;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#d6dce6;font-size:20px;cursor:pointer}
     .modal-body{padding:24px 32px 29px}.resource-title{margin:0 0 12px;color:#dbe1eb;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-    .resource-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+    .resource-rows{display:flex;flex-direction:column;gap:16px}
+    .resource-row-block{display:flex;flex-direction:column;gap:8px}
+    .resource-row-title{font-size:9px;color:#8f9db1;letter-spacing:.14em;font-weight:800;text-transform:uppercase}
+    .resource-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+    .resource-row[data-count="1"] .resource{grid-column:1/-1;min-height:76px;flex-direction:row;align-items:center}
+    .resource-row[data-count="1"] .resource-top{width:auto;min-width:74px}
+    .resource-locked{cursor:not-allowed;opacity:.62;background:rgba(255,255,255,.018)}
+    .resource-lock{font-size:13px;line-height:1;color:#aab4c4}
     .resource{min-height:95px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;padding:14px 15px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.035);text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
     .resource[href]:hover{background:rgba(151,176,218,.1);border-color:rgba(164,188,226,.42);transform:translateY(-2px)}
     .resource-top{display:flex;width:100%;justify-content:space-between;align-items:center}.resource-icon{font-size:9px;font-weight:850;letter-spacing:.1em;color:#aabbd8;border:1px solid rgba(177,197,231,.24);padding:5px 7px;border-radius:6px;background:rgba(138,164,205,.08)}
     .resource-arrow{color:#8499bc;font-size:14px}.resource-copy strong{display:block;font-size:12px;color:#e8edf5;margin-bottom:4px}.resource-copy span{display:block;color:#96a2b4;font-size:10px;line-height:1.45}
     .modal-note{margin:17px 0 0;padding:12px 14px;border-left:2px solid #829ac2;background:rgba(135,158,197,.08);color:#9eabba;font-size:10px;line-height:1.65}
-    @media(max-width:1040px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px}.folder-stage{aspect-ratio:1/1}.hero{padding-top:45px}}
-    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:66px}.nav{gap:13px}.nav-pill{display:none}.hero{display:block;padding:42px 0 24px}.term{margin-top:20px;width:max-content}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-list{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
+    @media(max-width:1040px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px}.folder-stage{aspect-ratio:1/1}.resource-row{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:45px}}
+    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:66px}.nav{gap:13px}.nav-pill{display:none}.hero{display:block;padding:42px 0 24px}.term{margin-top:20px;width:max-content}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-row{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
@@ -104,7 +118,7 @@
 
   <main id="top" class="wrap">
     <section class="hero">
-      <div><div class="eyebrow">THE 2026 COLLECTION</div><h1>AI Mini Projects</h1><p>A hands-on path through neural networks, fuzzy systems, and optimization. Open an available folder to access its assignment, notebook, and dataset.</p></div>
+      <div><div class="eyebrow">THE 2026 COLLECTION</div><h1>AI Mini Projects</h1><p>A hands-on path through neural networks, fuzzy systems, and optimization. Open a project folder to access its published guide and released materials.</p></div>
       <div class="term"><span class="term-dot"></span> FALL TERM · 2026</div>
     </section>
 
@@ -124,7 +138,7 @@
         <div class="modal-top-copy"><div class="modal-kicker">PROJECT RESOURCES · 01</div><h3 id="modalTitle">MLP Networks</h3><div class="modal-date" id="modalDate"></div><p class="modal-desc" id="modalDescription"></p></div>
         <div class="modal-art" id="modalArt" aria-hidden="true"></div>
       </div>
-      <div class="modal-body"><p class="resource-title">Available materials</p><div id="resourceList" class="resource-list"></div><p class="modal-note" id="modalNote"></p></div>
+      <div class="modal-body"><p class="resource-title">Project materials</p><div id="resourceList" class="resource-rows"></div><p class="modal-note" id="modalNote"></p></div>
     </section>
   </div>
 
@@ -159,23 +173,7 @@
     };
 
     const repoRoot = "https://github.com/rezaesCodes/fundamentals_of_AI_2026";
-    const projects = [
-      {
-        id:"mlp", number:"01", title:"MLP Networks", dates:"OCT 18 — NOV 01", state:"available", stateLabel:"Open project", art:modelArt.mlp,
-        description:"Build and evaluate a multilayer perceptron for nonlinear regression. Explore the shared 1,000-row dataset, then use your student/group seed to extract a reproducible 100-row subset for your experiments.",
-        resources:[
-          {label:"Question PDF",detail:"English version of the MLP project brief",kind:"PDF",href:`${repoRoot}/blob/main/Project_1_MLP/resources/MLP_Nonlinear_Relationships_English.pdf`},
-          {label:"Student notebook",detail:"Starter notebook: enter your student ID(s) to select your 100-row subset",kind:"IPYNB",href:`https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Student_Starter.ipynb`},
-          {label:"Master dataset",detail:"Shared CSV with all 1,000 observations (x, y, z, u)",kind:"CSV",href:`https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Master_Dataset_1000.csv`},
-          {label:"Full solution notebook",detail:"Completed full-mark example using seed 12345678",kind:"IPYNB",href:`https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Full_Mark_Answer_Seed_12345678.ipynb`}
-        ],
-        note:"Download the global 1,000-row CSV and keep it beside the notebook. The notebook uses the last four digits of your student ID (or both IDs for a pair) to build a seed and select a repeatable 100-row subset. The same seed is used for the later data split. Do not edit the shared master CSV."
-      },
-      {id:"hopfield",number:"02",title:"Hopfield Neural Networks",dates:"NOV 02 — NOV 11",state:"soon",stateLabel:"Soon",art:modelArt.hopfield},
-      {id:"mamdani",number:"03",title:"Mamdani Fuzzy Inference Systems",dates:"NOV 12 — NOV 21",state:"soon",stateLabel:"Soon",art:modelArt.mamdani},
-      {id:"tsk",number:"04",title:"TSK Fuzzy Inference Systems",dates:"NOV 22 — DEC 01",state:"soon",stateLabel:"Soon",art:modelArt.tsk},
-      {id:"optimization",number:"05",title:"Optimization Algorithms",dates:"DEC 02 — DEC 11",state:"soon",stateLabel:"Soon",art:modelArt.optimization}
-    ];
+    const projects = [{"id":"mlp","number":"01","title":"MLP Networks","dates":"OCT 18 — NOV 01","state":"available","stateLabel":"Open project","artKey":"mlp","fileCount":5,"description":"Build and evaluate a multilayer perceptron for nonlinear regression. Explore the shared 1,000-row dataset, then use your student/group seed to extract a reproducible 100-row subset for your experiments.","rows":[{"title":"01 · GUIDE","items":[{"label":"Persian project guide","detail":"Browser-readable project guide and assignment overview","kind":"HTML","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/MLP_Question.html"}]},{"title":"02 · QUESTION & FILES","items":[{"label":"English project brief","detail":"Project questions and instructions in PDF format","kind":"PDF","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Nonlinear_Relationships_English.pdf"},{"label":"Student template","detail":"Starter notebook for the assignment","kind":"IPYNB","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Student_Starter.ipynb"},{"label":"Master dataset","detail":"CSV with all 1,000 observations","kind":"CSV","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Master_Dataset_1000.csv"}]},{"title":"03 · ANSWER","items":[{"label":"Full solution notebook","detail":"Completed example using seed 12345678","kind":"IPYNB","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_1_MLP/resources/MLP_Full_Mark_Answer_Seed_12345678.ipynb"}]}],"note":"Download the master CSV and keep it beside the notebook. Use your student/group seed to select a reproducible 100-row subset. Do not edit the shared master CSV."},{"id":"proj2","number":"02","title":"Time Series, K-Means, SOM & Hopfield","dates":"NOV 02 — NOV 11","state":"available","stateLabel":"Guide available","artKey":"hopfield","fileCount":1,"description":"A guided engineering mini-project covering time-series forecasting, K-Means clustering, Self-Organizing Maps, and Hopfield associative memory. The public release currently provides the teaching guide only.","rows":[{"title":"01 · GUIDE","items":[{"label":"Solved examples guide","detail":"Worked examples for all four methods","kind":"IPYNB","href":"https://github.com/rezaesCodes/fundamentals_of_AI_2026/blob/main/Project_2_Integrated_TimeSeries_KMeans_SOM_Hopfield/01_Guide_Solved_Examples.ipynb"}]},{"title":"02 · QUESTIONS & DATA","items":[{"label":"Main question notebook","detail":"Locked student assignment notebook","kind":"IPYNB","locked":true},{"label":"Project brief","detail":"Assignment document placeholder","kind":"DOCX","locked":true},{"label":"Data extractor","detail":"Group-specific data generation script","kind":"PY","locked":true},{"label":"Project datasets","detail":"Assignment CSV files","kind":"CSV","locked":true}]},{"title":"03 · ANSWER","items":[{"label":"Instructor solution","detail":"Locked worked answer notebook","kind":"IPYNB","locked":true}]}],"note":"Only the teaching guide is public. The student questions, assignment brief, data extractor, datasets, and instructor solution are intentionally locked and have not been published."},{"id":"mamdani","number":"03","title":"Mamdani Fuzzy Inference Systems","dates":"NOV 12 — NOV 21","state":"soon","stateLabel":"Soon","artKey":"mamdani","fileCount":0},{"id":"tsk","number":"04","title":"TSK Fuzzy Inference Systems","dates":"NOV 22 — DEC 01","state":"soon","stateLabel":"Soon","artKey":"tsk","fileCount":0},{"id":"optimization","number":"05","title":"Optimization Algorithms","dates":"DEC 02 — DEC 11","state":"soon","stateLabel":"Soon","artKey":"optimization","fileCount":0}];
 
     const grid=document.getElementById('projectGrid');
     const backdrop=document.getElementById('modalBackdrop');
@@ -185,10 +183,13 @@
     function renderProjects(){
       grid.innerHTML=projects.map(p=>{
         const disabled=p.state!=='available';
-        return `<button class="project-card ${disabled?'locked':'active'}" type="button" data-project="${p.id}" ${disabled?'disabled aria-disabled="true"':'aria-haspopup="dialog"'} aria-label="${p.title}${disabled?', coming soon':', open resources'}">
-          <span class="folder-stage" aria-hidden="true"><span class="folder-back"></span><span class="folder-front"><span class="folder-index">FILE ${p.number}</span><span class="project-art">${p.art}</span></span><span class="folder-stamp">${disabled?'SOON':'OPEN'}</span></span>
-          <span class="project-meta"><strong>${p.title}</strong><span class="project-date">${p.dates}</span><span class="project-state">${p.stateLabel}</span></span>
-        </button>`;
+        const art=modelArt[p.artKey]||'';
+        const count=p.fileCount||0;
+        const countMarkup=count?'<span class="folder-file-count"><b>'+count+'</b> '+(count===1?'FILE':'FILES')+'</span>':'';
+        const papers=count?'<span class="folder-pages" aria-hidden="true"><span class="paper-back"></span><span class="paper-front"><i></i><i></i><i></i></span></span>':'';
+        return '<button class="project-card '+(disabled?'locked':'active')+'" type="button" data-project="'+p.id+'" '+(disabled?'disabled aria-disabled="true"':'aria-haspopup="dialog"')+' aria-label="'+p.title+(disabled?', coming soon':', open resources')+'">'+
+          '<span class="folder-stage" aria-hidden="true"><span class="folder-back"></span><span class="folder-front">'+papers+'<span class="project-art">'+art+'</span>'+countMarkup+'</span><span class="folder-stamp">'+(disabled?'SOON':'OPEN')+'</span></span>'+
+          '<span class="project-meta"><strong>'+p.title+'</strong><span class="project-date">'+p.dates+'</span><span class="project-state">'+p.stateLabel+'</span></span></button>';
       }).join('');
       grid.querySelectorAll('button[data-project]:not(:disabled)').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project,b)));
     }
@@ -200,7 +201,7 @@
       document.getElementById('modalDescription').textContent=p.description;
       document.getElementById('modalArt').innerHTML=p.art;
       document.getElementById('modalNote').textContent=p.note||'';
-      document.getElementById('resourceList').innerHTML=p.resources.map(r=>`<a class="resource" href="${r.href}" target="_blank" rel="noopener"><span class="resource-top"><span class="resource-icon">${r.kind}</span><span class="resource-arrow">↗</span></span><span class="resource-copy"><strong>${r.label}</strong><span>${r.detail}</span></span></a>`).join('');
+      document.getElementById('resourceList').innerHTML=(p.rows||[]).map(row=>'<section class="resource-row-block"><div class="resource-row-title">'+row.title+'</div><div class="resource-row" data-count="'+row.items.length+'">'+row.items.map(r=>{const top='<span class="resource-top"><span class="resource-icon">'+r.kind+'</span><span class="'+(r.locked?'resource-lock':'resource-arrow')+'">'+(r.locked?'🔒':'↗')+'</span></span><span class="resource-copy"><strong>'+r.label+'</strong><span>'+r.detail+'</span></span>';return r.locked?'<div class="resource resource-locked" aria-disabled="true">'+top+'</div>':'<a class="resource" href="'+r.href+'" target="_blank" rel="noopener">'+top+'</a>';}).join('')+'</div></section>').join('');
       backdrop.classList.add('open');document.body.style.overflow='hidden';closeButton.focus();
     }
     function closeProject(){backdrop.classList.remove('open');document.body.style.overflow='';if(lastFocused&&lastFocused.focus)lastFocused.focus()}

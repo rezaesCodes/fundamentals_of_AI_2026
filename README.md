@@ -10,7 +10,7 @@ Course project hub: https://rezaesCodes.github.io/fundamentals_of_AI_2026/
    - [Global 1,000-row dataset](Project_1_MLP/master_nonlinear_mlp_dataset_1000.csv)
    - [Full solution notebook (seed 12345678)](Project_1_MLP/resources/MLP_Full_Mark_Answer_Seed_12345678.ipynb)
 
-2. **Hopfield Neural Networks** - coming soon.
+2. **Integrated Engineering Project** — Time Series, K-Means, SOM & Hopfield. [Teaching guide](Project_2_Integrated_TimeSeries_KMeans_SOM_Hopfield/01_Guide_Solved_Examples.ipynb) is available; student questions, data generator, datasets, and instructor solution are not part of this public release.
 3. **Mamdani Fuzzy Inference Systems** - coming soon.
 4. **TSK Fuzzy Inference Systems** - coming soon.
 5. **Optimization Algorithms** - coming soon.
