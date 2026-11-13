@@ -199,7 +199,7 @@
       document.getElementById('modalTitle').textContent=p.title;
       document.getElementById('modalDate').textContent=p.dates;
       document.getElementById('modalDescription').textContent=p.description;
-      document.getElementById('modalArt').innerHTML=p.art;
+      document.getElementById('modalArt').innerHTML=modelArt[p.artKey]||'';
       document.getElementById('modalNote').textContent=p.note||'';
       document.getElementById('resourceList').innerHTML=(p.rows||[]).map(row=>'<section class="resource-row-block"><div class="resource-row-title">'+row.title+'</div><div class="resource-row" data-count="'+row.items.length+'">'+row.items.map(r=>{const top='<span class="resource-top"><span class="resource-icon">'+r.kind+'</span><span class="'+(r.locked?'resource-lock':'resource-arrow')+'">'+(r.locked?'🔒':'↗')+'</span></span><span class="resource-copy"><strong>'+r.label+'</strong><span>'+r.detail+'</span></span>';return r.locked?'<div class="resource resource-locked" aria-disabled="true">'+top+'</div>':'<a class="resource" href="'+r.href+'" target="_blank" rel="noopener">'+top+'</a>';}).join('')+'</div></section>').join('');
       backdrop.classList.add('open');document.body.style.overflow='hidden';closeButton.focus();
