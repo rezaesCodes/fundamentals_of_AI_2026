@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101114">
-  <meta name="description" content="Fundamentals of AI 2026 — mini-project releases, briefs, notebooks and datasets.">
-  <title>AI Mini Projects — Fundamentals of AI 2026</title>
+  <meta name="description" content="Fundamentals of AI — Fall Semester 2026 project releases and learning materials.">
+  <title>Fundamentals of AI — Fall Semester 2026</title>
   <style>
     :root {
       color-scheme: dark;
@@ -18,8 +18,8 @@
     body{margin:0;min-height:100vh;color:var(--text);background:radial-gradient(950px 500px at 50% -210px,rgba(111,137,183,.18),transparent 70%),linear-gradient(180deg,#151922 0%,var(--bg) 58%);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.012em}
     a{color:inherit}
     .wrap{width:min(1440px,calc(100% - 56px));margin:0 auto}
-    .topbar{height:76px;border-bottom:1px solid var(--line);background:rgba(12,14,18,.78);backdrop-filter:blur(16px);display:flex;align-items:center;position:sticky;top:0;z-index:5}
-    .topbar-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+    .topbar{height:62px;border-bottom:1px solid var(--line);background:rgba(12,14,18,.78);backdrop-filter:blur(16px);display:flex;align-items:center;position:sticky;top:0;z-index:5}
+    .topbar-inner{display:flex;align-items:center;justify-content:flex-end;width:100%}
     .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
     .brand-mark{width:38px;height:38px;border:1px solid rgba(255,255,255,.22);border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#343c4a,#1a1e27);box-shadow:inset 0 1px rgba(255,255,255,.14);color:#e3e9f5}
     .brand-mark svg{width:24px;height:24px}
@@ -34,7 +34,7 @@
     .eyebrow:before{content:"";width:24px;height:1px;background:#98a7bf}
     h1{font-size:clamp(38px,5vw,58px);line-height:1;letter-spacing:-.06em;font-weight:790;margin:15px 0 12px}
     .hero p{max-width:650px;color:#a7afbd;font-size:14px;line-height:1.75;margin:0}
-    .term{display:flex;align-items:center;gap:11px;padding:12px 15px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);color:#c2cad7;font-size:10px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .term{display:flex;align-items:center;gap:10px;color:#aeb9ca;font-size:10px;font-weight:750;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap}
     .term-dot{width:7px;height:7px;border-radius:50%;background:#b3c0d8;box-shadow:0 0 0 4px rgba(179,192,216,.12)}
     .section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 0 16px}
     .section-head h2{font-size:11px;color:#d8deea;letter-spacing:.18em;text-transform:uppercase;margin:0;font-weight:750}
@@ -44,24 +44,25 @@
     .project-card:not(:disabled):hover{transform:translateY(-5px)}
     .project-card:focus-visible{outline:2px solid #dce7ff;outline-offset:5px;border-radius:14px}
     .project-card:disabled{cursor:not-allowed;opacity:.58}
-    .folder-stage{width:100%;aspect-ratio:1/1;position:relative;isolation:isolate;transition:filter .22s,opacity .22s}
-    .project-card:not(:disabled):hover .folder-stage{filter:brightness(1.08)}
-    .letter-square{position:absolute;inset:8px;border:1px solid rgba(255,255,255,.19);border-radius:17px;background:linear-gradient(145deg,#48515f 0%,#303845 62%,#232a34 100%);box-shadow:0 15px 34px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.15);overflow:hidden}
-    .letter-square:after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(125deg,rgba(255,255,255,.13),transparent 47%);pointer-events:none}
-    .letter-paper{position:absolute;left:50%;top:7%;width:45%;height:44%;transform:translateX(-50%) rotate(-2deg);border:1px solid rgba(255,255,255,.78);border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#e8edf4,#c9d3e1);box-shadow:0 4px 11px rgba(0,0,0,.26)}
-    .letter-paper:before{content:"";position:absolute;left:13%;right:13%;top:20%;height:2px;background:#9caabe;box-shadow:0 9px #aab6c7,0 18px #aab6c7}
-    .letter-flap-top{position:absolute;left:10%;right:10%;top:5%;height:36%;background:linear-gradient(165deg,#8796aa,#59677b);clip-path:polygon(0 100%,50% 0,100% 100%);filter:drop-shadow(0 3px 3px rgba(0,0,0,.2))}
-    .letter-flap-left{position:absolute;left:0;top:35%;width:51%;height:61%;background:linear-gradient(135deg,#6d7a8d,#3e4857);clip-path:polygon(0 0,100% 48%,0 100%)}
-    .letter-flap-right{position:absolute;right:0;top:35%;width:51%;height:61%;background:linear-gradient(225deg,#7d8ba0,#3f4959);clip-path:polygon(100% 0,0 48%,100% 100%)}
-    .letter-flap-bottom{position:absolute;left:0;right:0;bottom:0;height:65%;background:linear-gradient(180deg,rgba(103,117,137,.95),rgba(49,59,73,.98));clip-path:polygon(0 0,50% 64%,100% 0,100% 100%,0 100%)}
-    .sealed-letter .letter-paper,.sealed-letter .letter-flap-top,.sealed-letter .letter-flap-left,.sealed-letter .letter-flap-right,.sealed-letter .letter-flap-bottom{display:none}
-    .letter-sealed-body{position:absolute;inset:10px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:linear-gradient(145deg,#404958,#252d38);box-shadow:inset 0 1px rgba(255,255,255,.08)}
-    .letter-seam{position:absolute;left:8%;right:8%;top:23%;height:25%;background:linear-gradient(180deg,#8290a4,#485568);clip-path:polygon(0 0,10% 18%,20% 0,30% 18%,40% 0,50% 18%,60% 0,70% 18%,80% 0,90% 18%,100% 0,100% 15%,90% 34%,80% 15%,70% 34%,60% 15%,50% 34%,40% 15%,30% 34%,20% 15%,10% 34%,0 15%)}
-    .letter-seal{position:absolute;left:50%;top:29%;width:25px;height:25px;transform:translateX(-50%);border:1px solid rgba(255,255,255,.48);border-radius:50%;background:radial-gradient(circle at 35% 30%,#b0bbca,#566477 72%);box-shadow:0 3px 8px rgba(0,0,0,.3);z-index:3}
-    .letter-seal:after{content:"";position:absolute;inset:7px;border:1px solid rgba(255,255,255,.58);transform:rotate(45deg)}
-    .project-card.active .letter-square{border-color:rgba(211,222,242,.52);background:linear-gradient(145deg,#556378 0%,#354154 62%,#252e3c 100%)}
-    .project-card.locked .letter-square{filter:grayscale(1);opacity:.8}
-    .project-art{position:absolute;left:14%;right:14%;top:43%;height:46%;color:#d9e1ee;z-index:2;filter:drop-shadow(0 5px 8px rgba(0,0,0,.25))}
+    .folder-stage{width:100%;aspect-ratio:210/297;position:relative;isolation:isolate;transition:filter .22s,opacity .22s}
+    .project-card:not(:disabled):hover .folder-stage{filter:brightness(1.04)}
+    .mailer{position:absolute;inset:0;overflow:hidden;border:1px solid #a99f8b;border-radius:7px;background:linear-gradient(145deg,#e8e0d0 0%,#d9cfbd 54%,#c9bda8 100%);box-shadow:0 14px 30px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.8);color:#5f594f}
+    .mailer:before{content:"";position:absolute;inset:7px;border:1px solid rgba(79,70,56,.18);border-radius:3px;pointer-events:none}
+    .mailer:after{content:"";position:absolute;top:0;bottom:0;left:5px;width:1px;background:rgba(91,80,62,.1);box-shadow:calc(100% - 11px) 0 rgba(91,80,62,.1);pointer-events:none}
+    .mailer-top-strip{position:absolute;left:0;right:0;top:0;height:18%;background:linear-gradient(180deg,#eee8dc,#ded4c2);border-bottom:1px solid rgba(91,80,62,.12)}
+    .mailer-perforation{position:absolute;left:8%;right:8%;top:18%;border-top:1px dashed rgba(81,72,59,.62);z-index:2}
+    .mailer-scissors{position:absolute;left:7%;top:calc(18% - 9px);width:18px;height:18px;padding:2px;color:#5d5549;background:#e1d8c8;z-index:3}
+    .mailer-scissors svg{display:block;width:100%;height:100%}
+    .mailer-cut-edge{display:none}
+    .mailer-open .mailer-top-strip{height:13%;transform:translateY(-10px) skewY(-1deg);box-shadow:0 4px 6px rgba(64,55,43,.18);border-bottom:0}
+    .mailer-open .mailer-perforation{top:18%;left:11%;border-top:1px solid rgba(72,65,54,.72)}
+    .mailer-open .mailer-cut-edge{display:block;position:absolute;left:8%;right:8%;top:17.7%;height:5px;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(91,79,60,.65) 4px 5px,transparent 5px 8px);z-index:2}
+    .mailer-open .mailer-scissors{opacity:.45;transform:rotate(-12deg)}
+    .mailer-sealed .mailer-top-strip{height:18%}
+    .mailer-sealed .mailer-scissors{opacity:.95}
+    .project-card.active .mailer{border-color:#c7b99f}
+    .project-card.locked .mailer{filter:grayscale(.6);opacity:.78}
+    .project-art{position:absolute;left:14%;right:14%;top:34%;height:48%;color:#62665f;z-index:2;filter:drop-shadow(0 3px 4px rgba(71,62,48,.12))}
     .project-art svg{width:100%;height:100%;display:block}
     .project-meta{display:flex;flex-direction:column;gap:6px;padding:0 3px;min-height:72px}
     .project-meta strong{font-size:14px;line-height:1.25;font-weight:700;color:#e6e9ef;letter-spacing:-.025em}
@@ -98,38 +99,27 @@
     .resource-top{display:flex;width:100%;justify-content:space-between;align-items:center}.resource-icon{font-size:9px;font-weight:850;letter-spacing:.1em;color:#aabbd8;border:1px solid rgba(177,197,231,.24);padding:5px 7px;border-radius:6px;background:rgba(138,164,205,.08)}
     .resource-arrow{color:#8499bc;font-size:14px}.resource-copy strong{display:block;font-size:12px;color:#e8edf5;margin-bottom:4px}.resource-copy span{display:block;color:#96a2b4;font-size:10px;line-height:1.45}
     .modal-note{margin:17px 0 0;padding:12px 14px;border-left:2px solid #829ac2;background:rgba(135,158,197,.08);color:#9eabba;font-size:10px;line-height:1.65}
-    @media(max-width:1040px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px}.folder-stage{aspect-ratio:1/1}.resource-row{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:45px}}
-    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:66px}.nav{gap:13px}.nav-pill{display:none}.hero{display:block;padding:42px 0 24px}.term{margin-top:20px;width:max-content}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-row{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
+    @media(max-width:1040px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px}.resource-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:58px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-row{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="Fundamentals of AI home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><path d="M9 9h6v6H9zM11 11h2v2h-2z"/></svg>
-        </span>
-        <span class="brand-copy"><strong>Fundamentals of AI</strong><span>MINI PROJECTS · 2026</span></span>
-      </a>
-      <nav class="nav" aria-label="Main navigation"><a href="#projects">Projects</a><a href="https://github.com/rezaesCodes" target="_blank" rel="noopener">GitHub ↗</a><span class="nav-pill">COURSE HUB</span></nav>
+      <div class="term"><span class="term-dot"></span>FALL SEMESTER · 2026</div>
     </div>
   </header>
 
   <main id="top" class="wrap">
-    <section class="hero">
-      <div><div class="eyebrow">THE 2026 COLLECTION</div><h1>AI Mini Projects</h1><p>A hands-on path through neural networks, fuzzy systems, and optimization. Open a project folder to access its published guide and released materials.</p></div>
-      <div class="term"><span class="term-dot"></span> FALL TERM · 2026</div>
-    </section>
-
     <section id="projects" aria-labelledby="project-heading">
-      <div class="section-head"><h2 id="project-heading">Project releases</h2><span>05 PROJECTS · 2026</span></div>
+      <div class="section-head"><h2 id="project-heading">PROJECTS</h2><span>05 RELEASES</span></div>
       <div id="projectGrid" class="project-grid" aria-live="polite"></div>
     </section>
-    <div class="hint"><span><strong>How it works:</strong> choose an available folder to open its materials. Upcoming projects remain locked until their release.</span><span class="key">SELECT A FOLDER ↗</span></div>
+    <div class="hint"><span><strong>How it works:</strong> open an unsealed package to access its materials. Sealed packages are upcoming releases.</span><span class="key">OPEN A PACKAGE ↗</span></div>
   </main>
 
-  <footer class="wrap"><span>FUNDAMENTALS OF AI · MINI PROJECT HUB</span><span>Built for the 2026 course · <a href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener">Source repository ↗</a></span></footer>
+  <footer class="wrap"><span>FUNDAMENTALS OF AI · FALL SEMESTER 2026</span><span>Built for the 2026 course · <a href="https://github.com/rezaesCodes/fundamentals_of_AI_2026" target="_blank" rel="noopener">Source repository ↗</a></span></footer>
 
   <div id="modalBackdrop" class="modal-backdrop" role="presentation">
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
@@ -180,7 +170,18 @@
     const closeButton=document.getElementById('closeModal');
     let lastFocused=null;
 
-    function renderProjects(){\n      grid.innerHTML=projects.map(p=>{\n        const disabled=p.state!=='available';\n        const art=modelArt[p.artKey]||'';\n        const letter=disabled\n          ? '<span class="letter-square sealed-letter"><span class="letter-sealed-body"></span><span class="letter-seam"></span><span class="letter-seal"></span></span>'\n          : '<span class="letter-square open-letter"><span class="letter-paper"></span><span class="letter-flap-top"></span><span class="letter-flap-left"></span><span class="letter-flap-right"></span><span class="letter-flap-bottom"></span></span>';\n        return '<button class="project-card '+(disabled?'locked':'active')+'" type="button" data-project="'+p.id+'" '+(disabled?'disabled aria-disabled="true"':'aria-haspopup="dialog"')+' aria-label="'+p.title+(disabled?', coming soon':', open resources')+'">'+\n          '<span class="folder-stage" aria-hidden="true">'+letter+'<span class="project-art">'+art+'</span></span>'+\n          '<span class="project-meta"><strong>'+p.title+'</strong><span class="project-date">'+p.dates+'</span>'+(p.stateLabel?'<span class="project-state">'+p.stateLabel+'</span>':'')+'</span></button>';\n      }).join('');\n      grid.querySelectorAll('button[data-project]:not(:disabled)').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project,b)));\n    }\n    function openProject(id,button){
+    function renderProjects(){
+      grid.innerHTML=projects.map(p=>{
+        const disabled=p.state!=='available';
+        const art=modelArt[p.artKey]||'';
+        const packageMarkup='<span class="mailer '+(disabled?'mailer-sealed':'mailer-open')+'"><span class="mailer-top-strip"></span><span class="mailer-perforation"></span><span class="mailer-scissors" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.7"/><circle cx="6" cy="18" r="2.7"/><path d="M8.2 7.8L20 19M8.2 16.2L20 5"/></svg></span><span class="mailer-cut-edge"></span></span>';
+        return '<button class="project-card '+(disabled?'locked':'active')+'" type="button" data-project="'+p.id+'" '+(disabled?'disabled aria-disabled="true"':'aria-haspopup="dialog"')+' aria-label="'+p.title+(disabled?', coming soon':', open materials')+'">'+
+          '<span class="folder-stage" aria-hidden="true">'+packageMarkup+'<span class="project-art">'+art+'</span></span>'+
+          '<span class="project-meta"><strong>'+p.title+'</strong><span class="project-date">'+p.dates+'</span>'+(p.stateLabel?'<span class="project-state">'+p.stateLabel+'</span>':'')+'</span></button>';
+      }).join('');
+      grid.querySelectorAll('button[data-project]:not(:disabled)').forEach(b=>b.addEventListener('click',()=>openProject(b.dataset.project,b)));
+    }
+    function openProject(id,button){
       const p=projects.find(x=>x.id===id&&x.state==='available'); if(!p)return;
       lastFocused=button||document.activeElement;
       document.getElementById('modalTitle').textContent=p.title;
