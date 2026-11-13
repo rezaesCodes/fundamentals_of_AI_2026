@@ -19,7 +19,7 @@
     a{color:inherit}
     .wrap{width:min(1440px,calc(100% - 56px));margin:0 auto}
     .topbar{height:62px;border-bottom:1px solid var(--line);background:rgba(12,14,18,.78);backdrop-filter:blur(16px);display:flex;align-items:center;position:sticky;top:0;z-index:5}
-    .topbar-inner{display:flex;align-items:center;justify-content:flex-end;width:100%}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%}
     .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
     .brand-mark{width:38px;height:38px;border:1px solid rgba(255,255,255,.22);border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#343c4a,#1a1e27);box-shadow:inset 0 1px rgba(255,255,255,.14);color:#e3e9f5}
     .brand-mark svg{width:24px;height:24px}
@@ -34,11 +34,12 @@
     .eyebrow:before{content:"";width:24px;height:1px;background:#98a7bf}
     h1{font-size:clamp(38px,5vw,58px);line-height:1;letter-spacing:-.06em;font-weight:790;margin:15px 0 12px}
     .hero p{max-width:650px;color:#a7afbd;font-size:14px;line-height:1.75;margin:0}
-    .term{display:flex;align-items:center;gap:10px;color:#aeb9ca;font-size:10px;font-weight:750;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap}
+    .course-name{color:#d5dbe5;font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}.term{display:flex;align-items:center;gap:10px;color:#aeb9ca;font-size:10px;font-weight:750;letter-spacing:.17em;text-transform:uppercase;white-space:nowrap}
     .term-dot{width:7px;height:7px;border-radius:50%;background:#b3c0d8;box-shadow:0 0 0 4px rgba(179,192,216,.12)}
     .section-head{display:flex;justify-content:space-between;align-items:center;margin:22px 0 16px}
     .section-head h2{font-size:11px;color:#d8deea;letter-spacing:.18em;text-transform:uppercase;margin:0;font-weight:750}
     .section-head span{font-size:10px;color:#747f90;letter-spacing:.13em}
+    .project-intro{margin:-5px 0 20px;color:#9da7b6;font-size:12px;line-height:1.6;letter-spacing:.005em}
     .project-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
     .project-card{border:0;background:none;color:inherit;text-align:left;min-width:0;padding:0;display:flex;flex-direction:column;gap:13px;font:inherit;cursor:pointer;transition:transform .22s,opacity .22s}
     .project-card:not(:disabled):hover{transform:translateY(-5px)}
@@ -48,17 +49,17 @@
     .project-card:not(:disabled):hover .folder-stage{filter:brightness(1.04)}
     .mailer{position:absolute;inset:0;overflow:hidden;border:1px solid #a99f8b;border-radius:7px;background:linear-gradient(145deg,#e8e0d0 0%,#d9cfbd 54%,#c9bda8 100%);box-shadow:0 14px 30px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.8);color:#5f594f}
     .mailer:before{content:"";position:absolute;inset:7px;border:1px solid rgba(79,70,56,.18);border-radius:3px;pointer-events:none}
-    .mailer:after{content:"";position:absolute;top:0;bottom:0;left:5px;width:1px;background:rgba(91,80,62,.1);box-shadow:calc(100% - 11px) 0 rgba(91,80,62,.1);pointer-events:none}
+    .mailer:after{content:"";position:absolute;left:8px;top:25%;bottom:8%;width:1px;background:rgba(91,80,62,.22);box-shadow:1px 0 rgba(255,255,255,.18);pointer-events:none}
     .mailer-top-strip{position:absolute;left:0;right:0;top:0;height:18%;background:linear-gradient(180deg,#eee8dc,#ded4c2);border-bottom:1px solid rgba(91,80,62,.12)}
     .mailer-perforation{position:absolute;left:8%;right:8%;top:18%;border-top:1px dashed rgba(81,72,59,.62);z-index:2}
     .mailer-scissors{position:absolute;left:7%;top:calc(18% - 9px);width:18px;height:18px;padding:2px;color:#5d5549;background:#e1d8c8;z-index:3}
     .mailer-scissors svg{display:block;width:100%;height:100%}
     .mailer-cut-edge{display:none}
-    .mailer-open .mailer-top-strip{height:13%;transform:translateY(-10px) skewY(-1deg);box-shadow:0 4px 6px rgba(64,55,43,.18);border-bottom:0}
-    .mailer-open .mailer-perforation{top:18%;left:11%;border-top:1px solid rgba(72,65,54,.72)}
-    .mailer-open .mailer-cut-edge{display:block;position:absolute;left:8%;right:8%;top:17.7%;height:5px;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(91,79,60,.65) 4px 5px,transparent 5px 8px);z-index:2}
-    .mailer-open .mailer-scissors{opacity:.45;transform:rotate(-12deg)}
-    .mailer-sealed .mailer-top-strip{height:18%}
+    .mailer-open .mailer-top-strip{display:none}
+    .mailer-open .mailer-perforation{top:11%;left:0;right:0;border-top:1px solid rgba(72,65,54,.48)}
+    .mailer-open .mailer-cut-edge{display:block;position:absolute;left:0;right:0;top:calc(11% - 2px);height:4px;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(91,79,60,.54) 4px 5px,transparent 5px 8px);z-index:2}
+    .mailer-open .mailer-scissors{left:7px;top:calc(11% - 9px);opacity:.65;transform:rotate(-12deg)}
+    .mailer-sealed .mailer-top-strip{height:18%}.mailer-sealed .mailer-perforation{left:0;right:0}
     .mailer-sealed .mailer-scissors{opacity:.95}
     .project-card.active .mailer{border-color:#c7b99f}
     .project-card.locked .mailer{filter:grayscale(.6);opacity:.78}
@@ -100,20 +101,22 @@
     .resource-arrow{color:#8499bc;font-size:14px}.resource-copy strong{display:block;font-size:12px;color:#e8edf5;margin-bottom:4px}.resource-copy span{display:block;color:#96a2b4;font-size:10px;line-height:1.45}
     .modal-note{margin:17px 0 0;padding:12px 14px;border-left:2px solid #829ac2;background:rgba(135,158,197,.08);color:#9eabba;font-size:10px;line-height:1.65}
     @media(max-width:1040px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 16px}.resource-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:58px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-row{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
+    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:58px}.course-name{font-size:8px;letter-spacing:.09em}.term{font-size:8px;letter-spacing:.11em}.topbar-inner{gap:8px}.project-intro{font-size:11px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 13px}.project-meta strong{font-size:13px}.hint{align-items:flex-start;flex-direction:column;margin-bottom:32px}.modal-backdrop{padding:10px;align-items:flex-end}.modal{max-height:92vh;border-radius:17px 17px 12px 12px}.modal-top{padding:23px 20px 18px;grid-template-columns:1fr 86px;gap:8px 12px}.modal-art{width:86px;height:86px}.modal h3{font-size:25px}.modal-desc{grid-column:1/-1}.modal-body{padding:18px 20px 22px}.resource-row{grid-template-columns:1fr}.resource{min-height:75px;flex-direction:row;align-items:center;justify-content:space-between}.resource-copy{flex:1}footer{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <div class="term"><span class="term-dot"></span>FALL SEMESTER · 2026</div>
+      <div class="course-name">FUNDAMENTALS OF ARTIFICIAL INTELLIGENCE</div>
+      <div class="term"><span class="term-dot"></span>FALL 2026</div>
     </div>
   </header>
 
   <main id="top" class="wrap">
     <section id="projects" aria-labelledby="project-heading">
       <div class="section-head"><h2 id="project-heading">PROJECTS</h2><span>05 RELEASES</span></div>
+      <p class="project-intro">Mini projects for the Fundamentals of Artificial Intelligence course.</p>
       <div id="projectGrid" class="project-grid" aria-live="polite"></div>
     </section>
     <div class="hint"><span><strong>How it works:</strong> open an unsealed package to access its materials. Sealed packages are upcoming releases.</span><span class="key">OPEN A PACKAGE ↗</span></div>
